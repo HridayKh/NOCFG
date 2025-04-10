@@ -130,6 +130,7 @@
 							</execution>
 						</executions>
 						<configuration>
+						<imageName>nocfg</imageName>
 							<mainClass>tech.hriday.App</mainClass>
 							<buildArgs>
 								<buildArg>--no-fallback</buildArg>
