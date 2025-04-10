@@ -9,13 +9,10 @@ public class App {
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Command: ");
-		String cmd = sc.nextLine();
+		String in = sc.nextLine();
 		sc.close();
-		
-		if (cmd.isBlank() || cmd.isEmpty() || cmd == null)
-			cmd = "--algorithm SHA-1 hello.txt";
 
-		int exitCode = new CommandLine(new CheckSum()).execute(cmd.split(" "));
+		int exitCode = new CommandLine(new nocfg()).execute(in.isBlank() ? "test".split("\\s+") : in.split("\\s+"));
 		System.exit(exitCode);
 	}
 }
