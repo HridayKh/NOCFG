@@ -12,7 +12,7 @@ public class App {
 		String in = sc.nextLine();
 		sc.close();
 
-		int exitCode = new CommandLine(new nocfg()).execute(in.isBlank() ? "test".split("\\s+") : in.split("\\s+"));
+		int exitCode = new CommandLine(new nocfg()).execute(in.isBlank() ? args : in.split("\\s+"));
 		System.exit(exitCode);
 	}
 }
