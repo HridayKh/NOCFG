@@ -1,9 +1,12 @@
 package tech.hriday.cmd;
 
+import java.util.Arrays;
+
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
 import tech.hriday.App;
 import tech.hriday.templates.TemplateProj;
+import tech.hriday.templates.comands.List;
 
 @Command(name = "make", description = "Creates a new project from a stored template.", mixinStandardHelpOptions = true, aliases = {
 		"create", "init" })
@@ -18,7 +21,8 @@ public class Make implements Runnable {
 	@Override
 	public void run() {
 		if (type == null) {
-			type = App.prompt("What type of project do you want to create? [java, react]: ");
+			System.out.println("HI!");
+			type = App.promptWithOptions("What type of project do you want to create?", Arrays.asList(List.getTemplateList()));
 		}
 
 		if (name == null) {

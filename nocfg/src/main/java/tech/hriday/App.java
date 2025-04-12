@@ -39,7 +39,6 @@ public class App {
 
 	public static String promptWithOptions(String question, List<String> options) {
 		String input;
-
 		while (true) {
 			System.out.print(question + " " + options + ": ");
 			input = globalScanner.nextLine().trim().toLowerCase();

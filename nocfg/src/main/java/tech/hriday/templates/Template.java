@@ -6,9 +6,13 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import picocli.CommandLine.Command;
+import tech.hriday.templates.comands.Create;
+import tech.hriday.templates.comands.List;
+import tech.hriday.templates.comands.Remove;
+import tech.hriday.templates.comands.Update;
 
-@Command(name = "template", description = "Manage your templates", mixinStandardHelpOptions = true, subcommands = {
-		TemplateCreate.class, TemplateList.class, TemplateRemove.class, TemplateUpdate.class })
+@Command(name = "template", description = "Manage your templates", mixinStandardHelpOptions = true, aliases = {
+		"templates" }, subcommands = { Create.class, List.class, Remove.class, Update.class })
 public class Template {
 
 	private static final Path TEMPLATE_BASE_PATH = Paths.get(System.getProperty("user.home"), ".nocfg", "templates");
@@ -26,38 +30,4 @@ public class Template {
 		return TEMPLATE_BASE_PATH;
 	}
 
-	public static String getTemplatesAsString() {
-		// TODO
-		return "[java, react]";
-	}
-
-}
-
-@Command(name = "create", description = "Create a new template from a project.", aliases = {"add"})
-class TemplateCreate implements Runnable {
-	public void run() {
-		System.out.println("Template command - use subcommands like create, list, fetch");
-	}
-
-}
-
-@Command(name = "list", description = "List all existing local and online templates.")
-class TemplateList implements Runnable {
-	public void run() {
-		System.out.println("Template command - use subcommands like create, list, fetch");
-	}
-}
-
-@Command(name = "remove", description = "Remove/Delete a template", aliases = { "delete" })
-class TemplateRemove implements Runnable {
-	public void run() {
-		System.out.println("Template command - use subcommands like create, list, fetch");
-	}
-}
-
-@Command(name = "update", description = "Update an existing template from a project.")
-class TemplateUpdate implements Runnable {
-	public void run() {
-		System.out.println("Template command - use subcommands like create, list, fetch");
-	}
 }
