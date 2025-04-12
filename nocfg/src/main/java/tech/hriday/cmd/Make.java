@@ -21,7 +21,6 @@ public class Make implements Runnable {
 	@Override
 	public void run() {
 		if (type == null) {
-			System.out.println("HI!");
 			type = App.promptWithOptions("What type of project do you want to create?", Arrays.asList(List.getTemplateList()));
 		}
 
