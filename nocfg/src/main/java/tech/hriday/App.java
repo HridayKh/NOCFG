@@ -9,17 +9,22 @@ public class App {
 	private static final Scanner globalScanner = new Scanner(System.in);
 
 	public static void main(String... args) {
-
 		if (System.getProperty("org.graalvm.nativeimage.imagecode") != null) {
 			int exitCode = new CommandLine(new nocfg()).execute(args);
 			System.exit(exitCode);
 		} else {
-			System.out.println("Running in IDE or maven, args ignroed");
-			System.out.print("Command: ");
-			String in = globalScanner.nextLine();
-			String[] a = {};
-			int exitCode = new CommandLine(new nocfg()).execute(in.isBlank() ? a : in.split("\\s+"));
-			System.exit(exitCode);
+			System.out.println("Running in IDE or Maven, args ignored");
+			boolean EXIT = false;
+			while (!EXIT) {
+				System.out.print("\nCommand: ");
+				String in = globalScanner.nextLine();
+				if (in.equals("exit")) {
+					EXIT = true;
+					continue;
+				}
+				int exitCode = new CommandLine(new nocfg()).execute(in.isBlank() ? new String[] {} : in.split("\\s+"));
+				System.out.println("(exit code: " + exitCode + ")");
+			}
 		}
 	}
 

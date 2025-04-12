@@ -4,9 +4,10 @@ import java.util.concurrent.Callable;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Help.Ansi;
 import tech.hriday.cmd.Make;
+import tech.hriday.templates.Template;
 
-@Command(name = "nocfg", mixinStandardHelpOptions = true, version = "NOCFG 0.0.0", subcommands = { Make.class,
-		TestCommand.class })
+@Command(name = "nocfg", mixinStandardHelpOptions = true, version = "NOCFG Alpha", subcommands = { Make.class,
+		TestCommand.class, Template.class })
 public class nocfg implements Callable<Integer> {
 	@Override
 	public Integer call() {

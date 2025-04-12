@@ -3,12 +3,11 @@ package tech.hriday.cmd;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
 import tech.hriday.App;
-import tech.hriday.templates.*;
+import tech.hriday.templates.TemplateProj;
 
 @Command(name = "make", description = "Creates a new project from a stored template.", mixinStandardHelpOptions = true, aliases = {
 		"create", "init" })
-public
-class Make implements Runnable {
+public class Make implements Runnable {
 
 	@Parameters(index = "0", arity = "0..1", description = "The template type (e.g., java, react)", paramLabel = "TYPE")
 	private String type;
@@ -25,7 +24,7 @@ class Make implements Runnable {
 		if (name == null) {
 			name = App.prompt("What should be the name of your project?: ");
 		}
-		String result = Template.createProj(type, name);
+		String result = TemplateProj.createProj(type, name);
 		if (result.equals("Success")) {
 			System.out.println("\n✅ Project '" + name + "' created using template '" + type + "'.");
 		} else {
