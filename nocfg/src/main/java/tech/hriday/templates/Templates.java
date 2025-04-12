@@ -1,4 +1,4 @@
-package tech.hriday;
+package tech.hriday.templates;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
