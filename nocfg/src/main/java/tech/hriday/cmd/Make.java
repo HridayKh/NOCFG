@@ -18,8 +18,6 @@ class Make implements Runnable {
 
 	@Override
 	public void run() {
-		Templates tl = new Templates();
-
 		if (type == null) {
 			type = App.prompt("What type of project do you want to create? [java, react]: ");
 		}
@@ -27,9 +25,7 @@ class Make implements Runnable {
 		if (name == null) {
 			name = App.prompt("What should be the name of your project?: ");
 		}
-
-		String result = tl.createProj(type, name);
-
+		String result = Template.createProj(type, name);
 		if (result.equals("Success")) {
 			System.out.println("\n✅ Project '" + name + "' created using template '" + type + "'.");
 		} else {

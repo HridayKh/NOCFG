@@ -6,11 +6,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class Templates {
+public class Template {
 
 	private static final Path TEMPLATE_BASE_PATH = Paths.get(System.getProperty("user.home"), ".nocfg", "templates");
 
-	public Templates() {
+	public Template() {
 		try {
 			if (!Files.exists(TEMPLATE_BASE_PATH)) {
 				Files.createDirectories(TEMPLATE_BASE_PATH);
@@ -21,7 +21,7 @@ public class Templates {
 		}
 	}
 
-	public String createProj(String type, String projPath) {
+	public static String createProj(String type, String projPath) {
 		Path sourcePath = TEMPLATE_BASE_PATH.resolve(type);
 		Path targetPath = Paths.get(projPath);
 
